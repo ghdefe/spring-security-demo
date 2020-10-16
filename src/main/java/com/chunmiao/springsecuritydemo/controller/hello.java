@@ -15,7 +15,8 @@ import java.util.Collection;
 @RestController
 public class hello {
 
-    //    @PreAuthorize("hasAnyRole('ADMIN')")
+    // 拥有ADMIN角色才可以访问
+    @PreAuthorize("hasAnyRole('ADMIN')")
     @RequestMapping("/hello")
     String test() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();

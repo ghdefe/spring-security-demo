@@ -26,6 +26,14 @@ public class UserDetailServiceImpl implements UserDetailsService {
     @Autowired
     private UserRoleRepository userRoleRepository;
 
+    /**
+     * 我的数据库表分为User表、UserInfo用户详细信息表、UserPassword密码表、UserRole用户角色表
+     * spring-security会给这个方法提供一个用户名，然后我们实现根据用户名得到这个用户的UserDetail信息（类似于包含用户名、密码、角色的实体类，下一步重写它）
+     * 然后返回的就是这个UserDetail，spring-security可以使用该类完成后面的操作
+     * @param username
+     * @return
+     * @throws UsernameNotFoundException
+     */
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         User user = userRepository.findFirstByUsername(username);

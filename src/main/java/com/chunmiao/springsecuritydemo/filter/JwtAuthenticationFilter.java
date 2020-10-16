@@ -19,12 +19,14 @@ public class JwtAuthenticationFilter extends GenericFilter {
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
         HttpServletRequest request = (HttpServletRequest) servletRequest;
-        String token = request.getHeader(JWTUtils.HEADER_TOKEN_NAME);
+        String token = request.getHeader(JWTUtils.HEADER_TOKEN_NAME);   // 从请求头中拿到token
         if (Objects.nonNull(token) && token.trim().length() > 0) {
-            String payload = JWTUtils.testJwt(token);
+            String payload = JWTUtils.testJwt(token);   // 从token中拿到payload
             if (Objects.nonNull(payload) && payload.trim().length() > 0) {
                 ObjectMapper objectMapper = new ObjectMapper();
+                // 我这个项目的payload是UserDetailImp的序列化后的Json，这里将其还原为UserDetailImpl对象
                 UserDetailImpl user = objectMapper.readValue(payload, UserDetailImpl.class);
+                // 将还原得到的认证信息交给spring-security管理（用户信息,认证,用户角色表）
                 SecurityContextHolder.getContext().setAuthentication(new UsernamePasswordAuthenticationToken(user,null,user.getAuthorities()));
             }
         }

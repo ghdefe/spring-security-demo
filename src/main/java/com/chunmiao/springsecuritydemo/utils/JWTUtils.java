@@ -4,6 +4,9 @@ import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
 import java.util.Base64;
 
+/**
+ * 提供信息HMACSHA256加密、信息签名、测试token是否合法
+ */
 public class JWTUtils {
     public static final String DEFAULT_HEADER = "\"alg\":\"HS256\",\"typ\":\"JWT\"";
 
