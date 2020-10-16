@@ -1,11 +1,11 @@
 # spring-security-demo
+*前言：本来是想尽量简单简单点的写一个demo的，但是spring-security实在是内容有点多，写着写着看起来就没那么简单了，想入门spring-security的话还是需要下些功夫的，这远没有Mybatis、JPA之类的容易入门*  
 一个spring-security采用jwt认证机制的demo。  
 以下代码仅为说明代码作用，有的并不完整，如若要参考请git clone整个项目代码查看  
-**前言：本来是想尽量简单简单点的写一个demo的，但是spring-security实在是内容有点多，写着写着看起来就没那么简单了，想入门spring-security的话还是需要下些功夫的，这远没有Mybatis、JPA之类的容易入门**  
-参考：  
+参考：       
 [spring security学习（SpringBoot2.1.5版本）](https://gitee.com/blueses/spring-boot-security)  
 [SpringBootSecurity学习（13）前后端分离版之JWT](https://www.jianshu.com/p/4eda6471ae51)  
-[重拾后端之Spring Boot（四）：使用JWT和Spring Security保护REST API](https://www.jianshu.com/p/6307c89fe3fa)  
+[重拾后端之Spring Boot（四）：使用JWT和Spring Security保护REST API](https://www.jianshu.com/p/6307c89fe3fa)
 ## spring-security
 config.securityConfig是springSecurity的安全配置类，在这个类中配置需要验证的接口、需要放行的接口，配置登录成功失败的处理器
 
